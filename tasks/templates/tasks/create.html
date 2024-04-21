@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block main %}
-<h1>タスク登録ページ</h1>
+<h1>create task page</h1>
 <form action="{% url 'tasks:create' %}" method="post">
   {% csrf_token %}
   {{ form.as_p }}
@@ -10,5 +10,5 @@
 
 <br>
 
-<a href="{% url 'tasks:index' %}">戻る</a>
+<a href="{% url 'tasks:index' %}">back</a>
 {% endblock %}

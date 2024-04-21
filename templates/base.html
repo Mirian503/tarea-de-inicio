@@ -14,11 +14,11 @@
       <ul>
         {% if user.is_authenticated %}
         <li><a href="{% url 'tasks:index' %}">INDEX</a></li>
-        <li><a href="{% url 'logout' %}">ログアウト</a></li>
-        <li><a href="{% url 'user_detail' user.pk %}">会員情報</a></li>    <!-- 追記 -->
+        <li><a href="{% url 'logout' %}">logout</a></li>
+        <li><a href="{% url 'user_detail' user.pk %}">member information</a></li>    <!-- 追記 -->
         {% else %}
-        <li><a href="{% url 'login' %}">ログイン</a></li>
-        <li><a href="{% url 'signup' %}">会員登録</a></li>
+        <li><a href="{% url 'login' %}">login</a></li>
+        <li><a href="{% url 'signup' %}">sign up</a></li>
         {% endif %}
         
       </ul>
