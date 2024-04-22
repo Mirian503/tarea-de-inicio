@@ -1,21 +1,11 @@
 {% extends "base.html" %}
 
 {% block main %}
-<table>
-  <tbody>
-    <tr>
-      <th>ユーザー名</th>
-      <td>{{ user.username }}</td>
-    </tr>
-    <tr>
-      <th>メールアドレス</th>
-      <td>{{ user.email }}</td>
-    </tr>
-    <tr>
-      <th>年齢</th>
-      <td>{{ user.age }}</td>
-    </tr>
-  </tbody>
-</table>
-<a href="{% url 'user_update' user.pk %}">編集する</a>    <!-- 追記 -->
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Actualizar.">
+</form>
+<a href="{% url 'user_detail' user.id %}">Regresar</a>
+<a href="{% url 'user_delete' user.id %}">Dar de baja</a>
 {% endblock %}

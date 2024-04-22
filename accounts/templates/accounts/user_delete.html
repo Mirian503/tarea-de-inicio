@@ -4,19 +4,24 @@
 <table>
     <tbody>
         <tr>
-            <th>nombre de usuario</th>
+            <th>Username</th>
             <td>{{ user.username }}</td>
         </tr>
         <tr>
-            <th>direccion de correo electronico</th>
+            <th>Email Address</th>
             <td>{{ user.email }}</td>
         </tr>
         <tr>
-            <th>edad</th>
+            <th>Age</th>
             <td>{{ user.age }}</td>
         </tr>
     </tbody>
 </table>
-<a href="{% url 'user_update' user.pk %}">Editar</a> |   
-<a href="{% url 'password_change' %}">Cambiar contraseña</a>
+
+<form action="{% url 'user_delete' user.id %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Delete Account">
+</form>
+
+<a href="{% url 'user_detail' user.id %}">Go back</a>
 {% endblock %}
